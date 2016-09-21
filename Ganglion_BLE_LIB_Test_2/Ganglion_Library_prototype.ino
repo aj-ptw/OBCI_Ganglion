@@ -1156,6 +1156,7 @@ void parseChar(char token){
     case 'b':  // RUNS A TIMED TEST AND REPORTS TO SERIAL PORT
       timeDataTest = true;  // will run until the number of samples is reached
       thatTestTime = micros();
+      thatTime = millis();
       sampleCounter = 0xFF;
       initSyntheticData();
       streamSynthetic = true;

@@ -37,11 +37,13 @@ void loop() {
     if(timeDataTest){
       thisTestTime = micros();
       if(thisTestTime - thatTestTime > 10000){
+        LED_state = !LED_state;
+        digitalWrite(LED,LED_state);
         thatTestTime = thisTestTime;
         sampleCounter++;
         if(sampleCounter == 0xFF){ sampleCounter = 0x00; }
         processChannelData();
-      }
+    }
     }
 
 
@@ -58,13 +60,13 @@ void loop() {
 //      digitalWrite(LED,LED_state);
     }
 
-    if(!is_running && !BLEconnected){
-      if(millis()-LED_timer > LED_delayTime){
-        LED_timer = millis();
-        LED_state = !LED_state;
-        digitalWrite(LED,LED_state);
-      }
-    }
+    // if(!is_running && !BLEconnected){
+    //   if(millis()-LED_timer > LED_delayTime){
+    //     LED_timer = millis();
+    //     LED_state = !LED_state;
+        // digitalWrite(LED,LED_state);
+    //   }
+    // }
 
     eventSerial();
 

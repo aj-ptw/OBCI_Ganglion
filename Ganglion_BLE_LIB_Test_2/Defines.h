@@ -3,7 +3,7 @@
 
 
 
-#define LED 23
+#define LED 5
 
 //  MCP
 #define DEACTIVATE 0
@@ -155,5 +155,3 @@
 */
 
 #define SD_SS 17
-
-
